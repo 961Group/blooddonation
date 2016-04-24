@@ -32,7 +32,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
@@ -40,13 +40,13 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      <Component id="jButton1" min="-2" pref="194" max="-2" attributes="0"/>
+                      <Component id="btnDonor" min="-2" pref="194" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="jButton4" min="-2" pref="194" max="-2" attributes="0"/>
+                      <Component id="btnPatient" min="-2" pref="194" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                      <Component id="jButton2" min="-2" pref="194" max="-2" attributes="0"/>
+                      <Component id="btnBank" min="-2" pref="194" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                      <Component id="jButton3" min="-2" pref="194" max="-2" attributes="0"/>
+                      <Component id="btnHistory" min="-2" pref="194" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -56,14 +56,14 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Component id="jLabel1" max="32767" attributes="0"/>
               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton1" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                  <Component id="jButton2" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                  <Component id="jButton3" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                  <Component id="jButton4" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="btnDonor" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="btnBank" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="btnHistory" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                  <Component id="btnPatient" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
           </Group>
@@ -71,17 +71,23 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="btnDonor">
       <Properties>
-        <Property name="text" type="java.lang.String" value="New Donation"/>
+        <Property name="text" type="java.lang.String" value="New Donor"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDonorActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="btnBank">
       <Properties>
         <Property name="text" type="java.lang.String" value="Blood Bank"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBankActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="btnHistory">
       <Properties>
         <Property name="text" type="java.lang.String" value="View History"/>
       </Properties>
@@ -96,7 +102,7 @@
         <Property name="horizontalTextPosition" type="int" value="4"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton4">
+    <Component class="javax.swing.JButton" name="btnPatient">
       <Properties>
         <Property name="text" type="java.lang.String" value="New Patient"/>
       </Properties>

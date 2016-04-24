@@ -29,9 +29,9 @@
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       <Component id="label1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jTextField1" min="-2" pref="139" max="-2" attributes="0"/>
+                      <Component id="txtName" min="-2" pref="139" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnSave" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="91" max="-2" attributes="0"/>
@@ -44,22 +44,22 @@
                                           <Group type="102" alignment="1" attributes="0">
                                               <Component id="label5" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="jTextField5" min="-2" pref="38" max="-2" attributes="0"/>
+                                              <Component id="txtbnegative" min="-2" pref="38" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
                                               <Component id="label3" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="32767" attributes="0"/>
-                                              <Component id="jTextField3" min="-2" pref="38" max="-2" attributes="0"/>
+                                              <Component id="txtanegative" min="-2" pref="38" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
                                               <Component id="label2" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jTextField2" min="-2" pref="38" max="-2" attributes="0"/>
+                                              <Component id="txtaplus" min="-2" pref="38" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
                                               <Component id="label4" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
-                                              <Component id="jTextField4" min="-2" pref="38" max="-2" attributes="0"/>
+                                              <Component id="txtbpositve" min="-2" pref="38" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
@@ -78,17 +78,17 @@
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <Component id="jTextField8" min="-2" pref="38" max="-2" attributes="0"/>
+                                              <Component id="txtopositive" min="-2" pref="38" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="label15" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" attributes="0">
-                                              <Component id="jTextField9" min="-2" pref="38" max="-2" attributes="0"/>
+                                              <Component id="txtonegative" min="-2" pref="38" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="label16" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
-                                              <Component id="jTextField7" min="-2" pref="38" max="-2" attributes="0"/>
+                                              <Component id="txtabnegative" min="-2" pref="38" max="-2" attributes="0"/>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Component id="label14" min="-2" max="-2" attributes="0"/>
                                           </Group>
@@ -100,7 +100,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="label6" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jTextField6" min="-2" pref="38" max="-2" attributes="0"/>
+                              <Component id="txtabpositive" min="-2" pref="38" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="label13" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -124,20 +124,20 @@
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="txtName" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Component id="btnSave" alignment="3" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <Component id="label1" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextField2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtaplus" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="label2" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="label10" min="-2" pref="23" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextField3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtanegative" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="label3" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -145,7 +145,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextField4" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="txtbpositve" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="label4" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="label17" min="-2" pref="23" max="-2" attributes="0"/>
                       </Group>
@@ -160,14 +160,14 @@
                                                   <Group type="102" attributes="0">
                                                       <Group type="103" groupAlignment="1" attributes="0">
                                                           <Group type="103" groupAlignment="0" attributes="0">
-                                                              <Component id="jTextField5" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                              <Component id="txtbnegative" alignment="0" min="-2" max="-2" attributes="0"/>
                                                               <Component id="label5" alignment="0" min="-2" max="-2" attributes="0"/>
                                                           </Group>
                                                           <Component id="label12" min="-2" pref="23" max="-2" attributes="0"/>
                                                       </Group>
                                                       <EmptySpace max="-2" attributes="0"/>
                                                       <Group type="103" groupAlignment="0" attributes="0">
-                                                          <Component id="jTextField6" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="txtabpositive" alignment="0" min="-2" max="-2" attributes="0"/>
                                                           <Component id="label6" alignment="0" min="-2" max="-2" attributes="0"/>
                                                       </Group>
                                                   </Group>
@@ -175,7 +175,7 @@
                                               </Group>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="jTextField7" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                  <Component id="txtabnegative" alignment="0" min="-2" max="-2" attributes="0"/>
                                                   <Component id="label7" alignment="0" min="-2" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
@@ -183,7 +183,7 @@
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jTextField8" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="txtopositive" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="label8" alignment="0" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
@@ -191,7 +191,7 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextField9" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="txtonegative" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="label9" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -213,14 +213,15 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JList" name="jList1">
+        <Component class="javax.swing.JList" name="lsBanks">
           <Properties>
             <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
-              <StringArray count="1">
-                <StringItem index="0" value="New BloodBank"/>
-              </StringArray>
+              <StringArray count="0"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="lsBanksValueChanged"/>
+          </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
           </AuxValues>
@@ -232,9 +233,9 @@
         <Property name="text" type="java.lang.String" value="Name"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
+    <Component class="javax.swing.JTextField" name="txtName">
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField2">
+    <Component class="javax.swing.JTextField" name="txtaplus">
       <Properties>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
@@ -244,7 +245,7 @@
         <Property name="text" type="java.lang.String" value="A +"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField3">
+    <Component class="javax.swing.JTextField" name="txtanegative">
       <Properties>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
@@ -254,7 +255,7 @@
         <Property name="text" type="java.lang.String" value="A -"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField4">
+    <Component class="javax.swing.JTextField" name="txtbpositve">
       <Properties>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
@@ -264,7 +265,7 @@
         <Property name="text" type="java.lang.String" value="B +"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField5">
+    <Component class="javax.swing.JTextField" name="txtbnegative">
       <Properties>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
@@ -274,7 +275,7 @@
         <Property name="text" type="java.lang.String" value="B -"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField6">
+    <Component class="javax.swing.JTextField" name="txtabpositive">
       <Properties>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
@@ -284,7 +285,7 @@
         <Property name="text" type="java.lang.String" value="AB +"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField7">
+    <Component class="javax.swing.JTextField" name="txtabnegative">
       <Properties>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
@@ -294,7 +295,7 @@
         <Property name="text" type="java.lang.String" value="AB -"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField8">
+    <Component class="javax.swing.JTextField" name="txtopositive">
       <Properties>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
@@ -304,7 +305,7 @@
         <Property name="text" type="java.lang.String" value="O +"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField9">
+    <Component class="javax.swing.JTextField" name="txtonegative">
       <Properties>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
@@ -314,10 +315,13 @@
         <Property name="text" type="java.lang.String" value="O -"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="btnSave">
       <Properties>
         <Property name="text" type="java.lang.String" value="Save"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSaveActionPerformed"/>
+      </Events>
     </Component>
     <Component class="java.awt.Label" name="label10">
       <Properties>
