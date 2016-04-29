@@ -73,7 +73,7 @@
   <SubComponents>
     <Component class="javax.swing.JButton" name="btnDonor">
       <Properties>
-        <Property name="text" type="java.lang.String" value="New Donor"/>
+        <Property name="text" type="java.lang.String" value="Donor"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDonorActionPerformed"/>
@@ -104,8 +104,11 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnPatient">
       <Properties>
-        <Property name="text" type="java.lang.String" value="New Patient"/>
+        <Property name="text" type="java.lang.String" value="Patient"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPatientActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

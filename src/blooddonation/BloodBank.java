@@ -1,5 +1,3 @@
-
-
 package blooddonation;
 
 import java.sql.ResultSet;
@@ -340,7 +338,7 @@ public class BloodBank extends javax.swing.JFrame {
         }else{
              if ( existBank(txtName.getText()) ){
             DBCon.StartCon();
-            DBCon.Insert("UPDATE bloodbank set BloodBank_Name = '"+txtName.getText()+"' where BloodBank_Name = '" + lsBanks.getSelectedValue() + "' ");
+            DBCon.Update("UPDATE bloodbank set BloodBank_Name = '"+txtName.getText()+"' where BloodBank_Name = '" + lsBanks.getSelectedValue() + "' ");
             DBCon.EndCon();
             try {
                  FetchList();

@@ -39,7 +39,7 @@ public class DBCon {
     public static boolean Update(String Query){
         try{
             PreparedStatement statement = con.prepareStatement(Query);
-            statement.executeQuery();
+            statement.executeUpdate();
             return true;
         }catch(SQLException ex){
             System.err.println(ex.getMessage());
