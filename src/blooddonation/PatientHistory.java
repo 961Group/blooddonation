@@ -19,8 +19,20 @@ public class PatientHistory extends javax.swing.JDialog {
         initComponents();
         setDefaultCloseOperation(HIDE_ON_CLOSE);
         setLocationRelativeTo(this);
+        refreshData();
     }
-
+    public void refreshData(){
+            entityManager.getTransaction().begin();
+            java.util.Collection data = patient_1Query.getResultList();
+            for(Object entity:data){
+                entityManager.refresh(entity);
+            }
+            patient_1List.clear();
+            patient_1List.addAll(data);
+            bindingGroup.unbind();
+            bindingGroup.bind();
+            entityManager.getTransaction().commit();
+        }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

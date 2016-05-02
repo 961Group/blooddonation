@@ -17,10 +17,22 @@ public class DonorHistory extends javax.swing.JDialog {
     public DonorHistory(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        setDefaultCloseOperation(HIDE_ON_CLOSE);
+        setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setLocationRelativeTo(this);
+         refreshData();
     }
-
+            public void refreshData(){
+            entityManager.getTransaction().begin();
+            java.util.Collection data = donor_1Query2.getResultList();
+            for(Object entity:data){
+                entityManager.refresh(entity);
+            }
+            donor_1List2.clear();
+            donor_1List2.addAll(data);
+            bindingGroup.unbind();
+            bindingGroup.bind();
+            entityManager.getTransaction().commit();
+        }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

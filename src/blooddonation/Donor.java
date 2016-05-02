@@ -349,6 +349,7 @@ public class Donor extends javax.swing.JFrame {
 
     private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
             blood = 0;
+            found = false;
             lblDonated.setText("0");
             txtDName.setEnabled(true);
             txtDNumber.setEnabled(true);
