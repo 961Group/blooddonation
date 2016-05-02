@@ -24,7 +24,12 @@ public class Patient extends javax.swing.JFrame {
         setDefaultCloseOperation(HIDE_ON_CLOSE);
         setLocationRelativeTo(this);
         setTitle("Patient");
-
+           btnDone.setEnabled(false);
+           cbxBtype.setEnabled(false);
+           cbxBank.setEnabled(false);
+           txtPInfo.setEnabled(false);
+           txtPName.setEnabled(false);
+           txtBTake.setEnabled(false);
         try {
              FetchList();
         }catch(SQLException ex){
@@ -287,25 +292,25 @@ public class Patient extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(jLabel2)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnNew, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane3)))
+                        .addContainerGap()
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel3)))
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnNew, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 218, Short.MAX_VALUE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
@@ -368,7 +373,20 @@ public class Patient extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
-
+            blood = 0;
+            found = false;
+            txtBTake.setEnabled(true);
+            txtPatientID.setEnabled(true);
+            txtBTake.setText("0");
+            txtPName.setEnabled(true);
+            txtPInfo.setEnabled(true);
+            txtPName.setText("");
+            txtPInfo.setText("");
+            cbxBank.setEnabled(true);
+            cbxBtype.setEnabled(true);
+            cbxBank.setSelectedIndex(0); 
+            cbxBtype.setSelectedIndex(0); 
+            btnDone.setEnabled(true);
     }//GEN-LAST:event_btnNewActionPerformed
 
     private void txtPatientIDKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPatientIDKeyReleased
@@ -383,14 +401,12 @@ public class Patient extends javax.swing.JFrame {
             blood = resultSet.getInt("Patient_Amount");
             FetchBankAmount(cbxBank.getSelectedItem().toString(),cbxBtype.getSelectedItem().toString());
             cbxBtype.setEnabled(false);
-            
             txtPatientID.setEnabled(false);
             btnDone.setEnabled(true);
             txtPName.setEnabled(true);
             txtPInfo.setEnabled(true);
             txtBTake.setEnabled(true);
-
-          //  txtBAvailable.setText(String.format("%d", blood));
+            cbxBank.setEnabled(true);
             found = true;
             
         }
@@ -421,17 +437,15 @@ public class Patient extends javax.swing.JFrame {
                 DBCon.Update("UPDATE patient SET Patient_FullName='"+txtPName.getText()+"', Patient_Info='"+txtPInfo.getText()+"' , Patient_Amount='"+txtBTake.getText()+"' , Patient_BloodBank='"+cbxBank.getSelectedItem()+"' WHERE Patient_ID ='"+txtPatientID.getText()+"'");
                 DBCon.EndCon();
                 UpdateBloodBank(cbxBank.getSelectedItem().toString(),cbxBtype.getSelectedItem().toString(), Integer.parseInt(txtBTake.getText()) );
-                JOptionPane.showMessageDialog(this, "Thank You For Your Donation","Thank You", JOptionPane.DEFAULT_OPTION);
+                JOptionPane.showMessageDialog(this, "You will be taken care of shortly","Back Home Safly", JOptionPane.DEFAULT_OPTION);
                 this.dispose();
             }else{
-               // int AddBlood = blood + Integer.parseInt(txtDonate.getText());
-               // lblDonated.setText(String.format("%d", AddBlood)); 
-            //    DBCon.StartCon();
-//                DBCon.Insert("INSERT INTO donor (Donor_Name,Donor_Amount,Donor_Number,Donor_BloodBank,Donor_BType) VALUES('"+txtDName.getText()+"','"+AddBlood+"','"+txtDNumber.getText()+"','"+cbxBank.getSelectedItem().toString()+"','"+cbxBType.getSelectedItem().toString()+"')");
-            //    DBCon.EndCon();
-                //AddBloodToBank(cbxBank.getSelectedItem().toString(),cbxBType.getSelectedItem().toString(),  Integer.parseInt(txtDonate.getText()) );
-              //  JOptionPane.showMessageDialog(this, "Thank You For Your Donation ","Thank You", JOptionPane.DEFAULT_OPTION);
-             //   this.dispose();
+                DBCon.StartCon();
+                DBCon.Insert("INSERT INTO patient (Patient_FullName,Patient_Info,Patient_BloodBank,Patient_Amount,Patient_BType) VALUES('"+txtPName.getText()+"','"+txtPInfo.getText()+"','"+cbxBank.getSelectedItem()+"','"+txtBTake.getText()+"','"+cbxBtype.getSelectedItem().toString()+"')");
+                DBCon.EndCon();
+                UpdateBloodBank(cbxBank.getSelectedItem().toString(),cbxBtype.getSelectedItem().toString(), Integer.parseInt(txtBTake.getText()) );
+                JOptionPane.showMessageDialog(this, "You will be taken care of shortly","Back Home Safly", JOptionPane.DEFAULT_OPTION);
+                this.dispose();
             } 
     }//GEN-LAST:event_btnDoneActionPerformed
 
