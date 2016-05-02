@@ -26,6 +26,12 @@ public class Donor extends javax.swing.JFrame {
         initComponents();
        setDefaultCloseOperation(HIDE_ON_CLOSE);
         setLocationRelativeTo(this);
+           btnDonate.setEnabled(false);
+           cbxBType.setEnabled(false);
+           cbxBank.setEnabled(false);
+           txtDName.setEnabled(false);
+           txtDNumber.setEnabled(false);
+           txtDonate.setEnabled(false);
         try {
              FetchList();
         }catch(SQLException ex){
@@ -75,7 +81,7 @@ public class Donor extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Donor");
 
-        jLabel1.setText("Donor ID");
+        jLabel1.setText("Donor ID Card");
 
         jLabel2.setText("Donor Name");
 
@@ -114,6 +120,8 @@ public class Donor extends javax.swing.JFrame {
 
         cbxBType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-" }));
 
+        lblDonated.setText("0");
+
         jLabel8.setText("Donate :");
 
         label2.setText("Litler");
@@ -148,33 +156,41 @@ public class Donor extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addComponent(jLabel5)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbxBType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(96, 96, 96)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cbxBank, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtDonate, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel8)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtDonate, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(lblDonated)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(btnDonate, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel4)
-                                        .addComponent(jLabel6))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(cbxBank, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(lblDonated))))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
-                        .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cbxBType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnDonate, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -186,7 +202,16 @@ public class Donor extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jScrollPane1)
                             .addComponent(btnNew, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
+                        .addGap(18, 18, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cbxBank)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(4, 4, 4)))
+                        .addGap(13, 13, 13)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -195,33 +220,25 @@ public class Donor extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(6, 6, 6)
                                 .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(16, 16, 16)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbxBType)
+                            .addComponent(btnDonate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbxBank)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(4, 4, 4)))
-                        .addGap(22, 22, 22)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(label1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(lblDonated, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(lblDonated)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(txtDonate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnDonate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(cbxBType)))
+                            .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(61, 61, 61)))
                 .addContainerGap())
         );
 
@@ -244,11 +261,18 @@ public class Donor extends javax.swing.JFrame {
             cbxBType.setSelectedItem(resultSet.getString("Donor_BType")); 
             cbxBType.setEnabled(false);
             cbxBank.setEnabled(false);
+            txtDonorID.setEnabled(false);
+            btnDonate.setEnabled(true);
+            txtDName.setEnabled(true);
+            txtDNumber.setEnabled(true);
+            txtDonate.setEnabled(true);
             blood = resultSet.getInt("Donor_Amount");
             lblDonated.setText(String.format("%d", blood));
             found = true;
             
-        }else{
+        }/*else{
+            btnDonate.setEnabled(true);
+            txtDonorID.setEnabled(true);
             blood = 0;
             lblDonated.setText("");
             cbxBType.setEnabled(true);
@@ -257,7 +281,7 @@ public class Donor extends javax.swing.JFrame {
             txtDNumber.setText(""); 
             cbxBank.setSelectedIndex(0); 
             cbxBType.setSelectedIndex(0); 
-        }   
+        }   */
             resultSet.close();
         DBCon.EndCon();
       }catch(SQLException ex){
@@ -313,43 +337,52 @@ public class Donor extends javax.swing.JFrame {
     
     
     private void btnDonateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDonateActionPerformed
+      if(txtDName.getText().equals("")){
+        JOptionPane.showMessageDialog(this, "Enter Donor Name","Missing", JOptionPane.DEFAULT_OPTION);
+      }else if (txtDNumber.getText().equals("")){
+        JOptionPane.showMessageDialog(this, "Enter Donor Cell Number","Missing", JOptionPane.DEFAULT_OPTION);   
+      }else if (txtDonate.getText().equals("")){
+        JOptionPane.showMessageDialog(this, "Enter Donation Amount"+ "","Missing", JOptionPane.DEFAULT_OPTION);
+      }else{
       
-        if (found){
-            int AddBlood = blood + Integer.parseInt(txtDonate.getText());
-            lblDonated.setText(String.format("%d", AddBlood)); 
-            DBCon.StartCon();
-            DBCon.Update("UPDATE donor SET Donor_Name='"+txtDName.getText()+"', Donor_Number='"+txtDNumber.getText()+"' , Donor_Amount='"+AddBlood+"' WHERE Donor_ID ='"+txtDonorID.getText()+"'");
-            DBCon.EndCon();
-            AddBloodToBank(cbxBank.getSelectedItem().toString(),cbxBType.getSelectedItem().toString(),  Integer.parseInt(txtDonate.getText()) );
-            JOptionPane.showMessageDialog(this, "Thank You For Your Donation","Thank You", JOptionPane.DEFAULT_OPTION);
-            this.dispose();
-        }else{
-            int AddBlood = blood + Integer.parseInt(txtDonate.getText());
-            lblDonated.setText(String.format("%d", AddBlood)); 
-            DBCon.StartCon();
-            DBCon.Insert("INSERT INTO donor (Donor_Name,Donor_Amount,Donor_Number,Donor_BloodBank,Donor_BType) VALUES('"+txtDName.getText()+"','"+AddBlood+"','"+txtDNumber.getText()+"','"+cbxBank.getSelectedItem().toString()+"','"+cbxBType.getSelectedItem().toString()+"')");
-            DBCon.EndCon();
-            AddBloodToBank(cbxBank.getSelectedItem().toString(),cbxBType.getSelectedItem().toString(),  Integer.parseInt(txtDonate.getText()) );
-            JOptionPane.showMessageDialog(this, "Thank You For Your Donation ","Thank You", JOptionPane.DEFAULT_OPTION);
-            this.dispose();
-            
-            
-            
-            
-            
-        } 
-
+            if (found){
+                int AddBlood = blood + Integer.parseInt(txtDonate.getText());
+                lblDonated.setText(String.format("%d", AddBlood)); 
+                DBCon.StartCon();
+                DBCon.Update("UPDATE donor SET Donor_Name='"+txtDName.getText()+"', Donor_Number='"+txtDNumber.getText()+"' , Donor_Amount='"+AddBlood+"' WHERE Donor_ID ='"+txtDonorID.getText()+"'");
+                DBCon.EndCon();
+                AddBloodToBank(cbxBank.getSelectedItem().toString(),cbxBType.getSelectedItem().toString(),  Integer.parseInt(txtDonate.getText()) );
+                JOptionPane.showMessageDialog(this, "Thank You For Your Donation","Thank You", JOptionPane.DEFAULT_OPTION);
+                this.dispose();
+            }else{
+                int AddBlood = blood + Integer.parseInt(txtDonate.getText());
+                lblDonated.setText(String.format("%d", AddBlood)); 
+                DBCon.StartCon();
+                DBCon.Insert("INSERT INTO donor (Donor_Name,Donor_Amount,Donor_Number,Donor_BloodBank,Donor_BType) VALUES('"+txtDName.getText()+"','"+AddBlood+"','"+txtDNumber.getText()+"','"+cbxBank.getSelectedItem().toString()+"','"+cbxBType.getSelectedItem().toString()+"')");
+                DBCon.EndCon();
+                AddBloodToBank(cbxBank.getSelectedItem().toString(),cbxBType.getSelectedItem().toString(),  Integer.parseInt(txtDonate.getText()) );
+                JOptionPane.showMessageDialog(this, "Thank You For Your Donation ","Thank You", JOptionPane.DEFAULT_OPTION);
+                this.dispose();
+            } 
+      }
     }//GEN-LAST:event_btnDonateActionPerformed
 
     private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
-              blood = 0;
+            blood = 0;
+            lblDonated.setText("0");
+            txtDName.setEnabled(true);
+            txtDNumber.setEnabled(true);
+            txtDonate.setEnabled(true);
             lblDonated.setText("");
+            txtDonorID.setText("");
             cbxBType.setEnabled(true);
+            txtDonorID.setEnabled(true);
             cbxBank.setEnabled(true);
             txtDName.setText(""); 
             txtDNumber.setText(""); 
             cbxBank.setSelectedIndex(0); 
             cbxBType.setSelectedIndex(0); 
+            btnDonate.setEnabled(true);
     }//GEN-LAST:event_btnNewActionPerformed
 
     /**
