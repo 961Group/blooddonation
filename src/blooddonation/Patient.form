@@ -177,6 +177,7 @@
         <Component class="javax.swing.JTextPane" name="txtPatientID">
           <Events>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPatientIDKeyReleased"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtPatientIDKeyTyped"/>
           </Events>
         </Component>
       </SubComponents>
@@ -207,6 +208,7 @@
           </Properties>
           <Events>
             <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtBTakeKeyReleased"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtBTakeKeyTyped"/>
           </Events>
         </Component>
       </SubComponents>

@@ -97,11 +97,19 @@ public class Donor extends javax.swing.JFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtDonorIDKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDonorIDKeyTyped(evt);
+            }
         });
         jScrollPane1.setViewportView(txtDonorID);
 
         jScrollPane2.setViewportView(txtDName);
 
+        txtDNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDNumberKeyTyped(evt);
+            }
+        });
         jScrollPane3.setViewportView(txtDNumber);
 
         btnDonate.setBackground(new java.awt.Color(255, 0, 51));
@@ -140,6 +148,9 @@ public class Donor extends javax.swing.JFrame {
         txtDonate.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtDonateKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDonateKeyTyped(evt);
             }
         });
         jScrollPane5.setViewportView(txtDonate);
@@ -226,47 +237,11 @@ public class Donor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtDonorIDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDonorIDKeyPressed
-
         
     }//GEN-LAST:event_txtDonorIDKeyPressed
 
     private void txtDonorIDKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDonorIDKeyReleased
-      try{
-        DBCon.StartCon();
-        ResultSet resultSet =  DBCon.Select("SELECT * FROM donor Where Donor_ID = '"+txtDonorID.getText()+"'");
-        if (resultSet.next()){
-            txtDName.setText(resultSet.getString("Donor_Name")); 
-            cbxBank.setSelectedItem(resultSet.getString("Donor_BloodBank").toString()); 
-            txtDNumber.setText(resultSet.getString("Donor_Number")); 
-            cbxBType.setSelectedItem(resultSet.getString("Donor_BType")); 
-            cbxBType.setEnabled(false);
-            cbxBank.setEnabled(false);
-            txtDonorID.setEnabled(false);
-            btnDonate.setEnabled(true);
-            txtDName.setEnabled(true);
-            txtDNumber.setEnabled(true);
-            txtDonate.setEnabled(true);
-            blood = resultSet.getInt("Donor_Amount");
-            lblDonated.setText(String.format("%d", blood));
-            found = true;
-            
-        }/*else{
-            btnDonate.setEnabled(true);
-            txtDonorID.setEnabled(true);
-            blood = 0;
-            lblDonated.setText("");
-            cbxBType.setEnabled(true);
-            cbxBank.setEnabled(true);
-            txtDName.setText(""); 
-            txtDNumber.setText(""); 
-            cbxBank.setSelectedIndex(0); 
-            cbxBType.setSelectedIndex(0); 
-        }   */
-            resultSet.close();
-        DBCon.EndCon();
-      }catch(SQLException ex){
-          System.err.println(ex.getMessage());
-      }
+      
     }//GEN-LAST:event_txtDonorIDKeyReleased
 
     void AddBloodToBank(String BankName,String Type,int blood ){
@@ -373,6 +348,61 @@ public class Donor extends javax.swing.JFrame {
     private void txtDonateKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDonateKeyReleased
 
     }//GEN-LAST:event_txtDonateKeyReleased
+
+    private void txtDonorIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDonorIDKeyTyped
+        if(!Character.isDigit(evt.getKeyChar())){
+            evt.consume();
+        }
+        try{
+        DBCon.StartCon();
+        ResultSet resultSet =  DBCon.Select("SELECT * FROM donor Where Donor_ID = '"+txtDonorID.getText() + evt.getKeyChar() +"'");
+        if (resultSet.next()){
+            txtDName.setText(resultSet.getString("Donor_Name")); 
+            cbxBank.setSelectedItem(resultSet.getString("Donor_BloodBank").toString()); 
+            txtDNumber.setText(resultSet.getString("Donor_Number")); 
+            cbxBType.setSelectedItem(resultSet.getString("Donor_BType")); 
+            cbxBType.setEnabled(false);
+            cbxBank.setEnabled(false);
+            txtDonorID.setEnabled(false);
+            txtDonorID.setText(txtDonorID.getText() + evt.getKeyChar());
+            btnDonate.setEnabled(true);
+            txtDName.setEnabled(true);
+            txtDNumber.setEnabled(true);
+            txtDonate.setEnabled(true);
+            blood = resultSet.getInt("Donor_Amount");
+            lblDonated.setText(String.format("%d", blood));
+            found = true;
+            
+        }/*else{
+            btnDonate.setEnabled(true);
+            txtDonorID.setEnabled(true);
+            blood = 0;
+            lblDonated.setText("");
+            cbxBType.setEnabled(true);
+            cbxBank.setEnabled(true);
+            txtDName.setText(""); 
+            txtDNumber.setText(""); 
+            cbxBank.setSelectedIndex(0); 
+            cbxBType.setSelectedIndex(0); 
+        }   */
+            resultSet.close();
+        DBCon.EndCon();
+      }catch(SQLException ex){
+          System.err.println(ex.getMessage());
+      }
+    }//GEN-LAST:event_txtDonorIDKeyTyped
+
+    private void txtDonateKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDonateKeyTyped
+          if(!Character.isDigit(evt.getKeyChar())){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtDonateKeyTyped
+
+    private void txtDNumberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDNumberKeyTyped
+        if(!Character.isDigit(evt.getKeyChar())){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtDNumberKeyTyped
 
     /**
      * @param args the command line arguments

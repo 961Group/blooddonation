@@ -5,6 +5,7 @@
  */
 package blooddonation;
 
+import java.awt.event.KeyEvent;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -140,8 +141,12 @@ public class Patient extends javax.swing.JFrame {
           System.err.println(ex.getMessage());
       }
     }
-     void SelectAutoBlood(int Blood,String Type ){
+     void SelectAutoBlood(String Blood,String Type ){
           String BloodType = "";
+              if( txtBTake.getText().equals("") ){
+                 txtBTake.setText("");
+                 Blood="0";
+              }
           switch (Type) {
               case "A+":
                   BloodType = "BloodBank_AP";
@@ -179,10 +184,12 @@ public class Patient extends javax.swing.JFrame {
                
                 cbxBank.setSelectedItem(resultSet.getString("RESULT"));
                 x = true;
+                btnDone.setEnabled(true);
             }
             
             if(!x){
                    txtBAvailable.setText("Not Available");
+                   btnDone.setEnabled(false);
             }
             resultSet.close();
             DBCon.EndCon();
@@ -237,6 +244,9 @@ public class Patient extends javax.swing.JFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtPatientIDKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPatientIDKeyTyped(evt);
+            }
         });
         jScrollPane1.setViewportView(txtPatientID);
 
@@ -248,6 +258,9 @@ public class Patient extends javax.swing.JFrame {
         txtBTake.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtBTakeKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtBTakeKeyTyped(evt);
             }
         });
         jScrollPane4.setViewportView(txtBTake);
@@ -393,35 +406,13 @@ public class Patient extends javax.swing.JFrame {
     }//GEN-LAST:event_btnNewActionPerformed
 
     private void txtPatientIDKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPatientIDKeyReleased
-        try{
-        DBCon.StartCon();
-        ResultSet resultSet =  DBCon.Select("SELECT * FROM patient Where Patient_ID = '"+txtPatientID.getText()+"'");
-        if (resultSet.next()){
-            txtPName.setText(resultSet.getString("Patient_FullName")); 
-            cbxBtype.setSelectedItem(resultSet.getString("Patient_BType").toString()); 
-            txtPInfo.setText(resultSet.getString("Patient_Info")); 
-            cbxBank.setSelectedItem(resultSet.getString("Patient_BloodBank")); 
-            blood = resultSet.getInt("Patient_Amount");
-            FetchBankAmount(cbxBank.getSelectedItem().toString(),cbxBtype.getSelectedItem().toString());
-            cbxBtype.setEnabled(false);
-            txtPatientID.setEnabled(false);
-            btnDone.setEnabled(true);
-            txtPName.setEnabled(true);
-            txtPInfo.setEnabled(true);
-            txtBTake.setEnabled(true);
-            cbxBank.setEnabled(true);
-            found = true;
-            
-        }
-        resultSet.close();
-        DBCon.EndCon();
-      }catch(SQLException ex){
-          System.err.println(ex.getMessage());
-      }
+        
     }//GEN-LAST:event_txtPatientIDKeyReleased
 
     private void txtBTakeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBTakeKeyReleased
-        SelectAutoBlood(Integer.parseInt(txtBTake.getText()),cbxBtype.getSelectedItem().toString());
+
+            SelectAutoBlood(txtBTake.getText(),cbxBtype.getSelectedItem().toString());
+
     }//GEN-LAST:event_txtBTakeKeyReleased
 
     private void cbxBankItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbxBankItemStateChanged
@@ -435,7 +426,12 @@ public class Patient extends javax.swing.JFrame {
     }//GEN-LAST:event_cbxBtypeItemStateChanged
 
     private void btnDoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoneActionPerformed
-    SelectAutoBlood(Integer.parseInt(txtBTake.getText()),cbxBtype.getSelectedItem().toString());    
+    SelectAutoBlood(txtBTake.getText(),cbxBtype.getSelectedItem().toString());    
+    if( txtPName.getText().equals("") ){
+                            JOptionPane.showMessageDialog(this, "Name is Empty","Error", JOptionPane.DEFAULT_OPTION);
+    }else if(txtBTake.getText().equals("0") ){
+                            JOptionPane.showMessageDialog(this, "Blood Units is Zero","Error", JOptionPane.DEFAULT_OPTION);
+    }else{
         if (found){
                 DBCon.StartCon();
                 DBCon.Update("UPDATE patient SET Patient_FullName='"+txtPName.getText()+"', Patient_Info='"+txtPInfo.getText()+"' , Patient_Amount='"+txtBTake.getText()+"' , Patient_BloodBank='"+cbxBank.getSelectedItem()+"' WHERE Patient_ID ='"+txtPatientID.getText()+"'");
@@ -451,7 +447,47 @@ public class Patient extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "You will be taken care of shortly","Back Home Safly", JOptionPane.DEFAULT_OPTION);
                 this.dispose();
             } 
+        
+        }
     }//GEN-LAST:event_btnDoneActionPerformed
+
+    private void txtPatientIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPatientIDKeyTyped
+        if(!Character.isDigit(evt.getKeyChar())){
+            evt.consume();
+        }
+        try{
+        DBCon.StartCon();
+        ResultSet resultSet =  DBCon.Select("SELECT * FROM patient Where Patient_ID = '"+ txtPatientID.getText() + evt.getKeyChar() +"'");
+        if (resultSet.next()){
+            txtPName.setText(resultSet.getString("Patient_FullName")); 
+            cbxBtype.setSelectedItem(resultSet.getString("Patient_BType").toString()); 
+            txtPInfo.setText(resultSet.getString("Patient_Info")); 
+            cbxBank.setSelectedItem(resultSet.getString("Patient_BloodBank")); 
+            blood = resultSet.getInt("Patient_Amount");
+            FetchBankAmount(cbxBank.getSelectedItem().toString(),cbxBtype.getSelectedItem().toString());
+            cbxBtype.setEnabled(false);
+            txtPatientID.setEnabled(false);
+            txtPatientID.setText(txtPatientID.getText() + evt.getKeyChar());
+            btnDone.setEnabled(true);
+            txtPName.setEnabled(true);
+            txtPInfo.setEnabled(true);
+            txtBTake.setEnabled(true);
+            cbxBank.setEnabled(true);
+            found = true;
+            
+        }
+        resultSet.close();
+        DBCon.EndCon();
+      }catch(SQLException ex){
+          System.err.println(ex.getMessage());
+      }
+    }//GEN-LAST:event_txtPatientIDKeyTyped
+
+    private void txtBTakeKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBTakeKeyTyped
+            if(!Character.isDigit(evt.getKeyChar()) || (evt.getKeyCode() == KeyEvent.VK_ENTER) || (evt.getKeyCode() == KeyEvent.VK_BACK_SPACE)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtBTakeKeyTyped
 
     /**
      * @param args the command line arguments
